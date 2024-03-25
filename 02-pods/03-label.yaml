@@ -3,8 +3,8 @@ kind: Pod
 metadata:
   name: label-demo
   labels:
-    course: DevOps321
-    Training: "siva kumar"
+    course: DevOps
+    Training: "sivakumar"
 
 spec:
   #list of containers
