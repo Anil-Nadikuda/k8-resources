@@ -3,13 +3,12 @@ kind: PersistentVolumeClaim
 metadata:
   name: ebs-dynamic
 spec:
-  storageClassName: ebs-sc 
-  accessModes: 
+  accessModes:
     - ReadWriteOnce
+  storageClassName: ebs-sc
   resources:
     requests:
       storage: 4Gi
-
 ---
 apiVersion: v1
 kind: Pod
@@ -38,7 +37,7 @@ metadata:
 spec:
   type: LoadBalancer
   selector:
-    demo: ebs-dynamic
+    demo: ebs-static
   ports:
   - protocol: TCP
     port: 80 #service-port
