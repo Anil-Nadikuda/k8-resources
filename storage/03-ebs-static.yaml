@@ -12,7 +12,7 @@ spec:
     fsType: ext4
     volumeHandle: vol-065c710c7d34d7d14
   
-----
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -25,7 +25,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-----
+---
 
 apiVersion: v1
 kind: Pod
@@ -46,7 +46,7 @@ spec:
   - name: nginx-data
     persistentVolumeClaim:
       claimName: ebs-static
-----
+---
 
 apiVersion: v1
 kind: Service
