@@ -23,12 +23,12 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 4Gi
+      storage: 5Gi
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-  name: app
+  name: ebs-static
   labels:
     demo: ebs-static
 spec:
