@@ -4,21 +4,20 @@ metadata:
   name: ebs-static
 spec:
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteOnce #EBS volume should have readwriteonce, because it HD.
   capacity:
-    storage: 5Gi
+    storage: 10Gi
   csi:
     driver: ebs.csi.aws.com
     fsType: ext4
-    volumeHandle: vol-065c710c7d34d7d14
-  
+    volumeHandle: vol-095b046ae862ee1ff
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: ebs-static
 spec:
-  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set. for static provisioning this is empty
   volumeName: ebs-static
   accessModes:
     - ReadWriteOnce
@@ -26,11 +25,10 @@ spec:
     requests:
       storage: 5Gi
 ---
-
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ebs-static
+  name: app
   labels:
     demo: ebs-static
 spec:
@@ -47,7 +45,6 @@ spec:
     persistentVolumeClaim:
       claimName: ebs-static
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
