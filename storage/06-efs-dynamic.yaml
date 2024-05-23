@@ -49,7 +49,7 @@ kind: Service
 metadata:
   name: efs-dynamic
 spec:
-  tyoe: LoadBalancer
+  type: LoadBalancer
   selector:
     demo: efs-dynamic
   ports:
