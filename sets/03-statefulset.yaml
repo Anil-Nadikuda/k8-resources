@@ -47,3 +47,4 @@ spec:
   clusterIP: None
   selector:
     app: nginx
+
